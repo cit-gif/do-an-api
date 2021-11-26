@@ -1,0 +1,10 @@
+# Local Netlify folder
+.netlify
+node_modules
+.vscode
+package-lock.json
+yarn.lock
+yarn-error.lock
+.expo
+.next
+dist
