@@ -419,7 +419,7 @@ router.post('/api/user/profile', authMiddleware.verifyTokenUser, async (req, res
 router.post('/api/user/profile/edit/profile', authMiddleware.verifyTokenUser, async (req, res) => {
 	try {
 		const Id_User = res.locals.payload._id;
-		const update = { Avatar: '' };
+		const update = { Avatar: '', Name: '' };
 		await uploadAvatar(req, res);
 		if (req.file) {
 			const pathAvatar = path.join(__dirname, '../../public/backend/user/avatar', req.file.filename);
@@ -431,7 +431,7 @@ router.post('/api/user/profile/edit/profile', authMiddleware.verifyTokenUser, as
 					message: 'Chỉ hỗ trợ định dạng jpg, png, jpeg!',
 				});
 			}
-			await sharp(req.file.path)
+			sharp(req.file.path)
 				.resize(200, 200, { fit: 'cover' })
 				.toBuffer((err, buffer) => {
 					if (err) throw err;
@@ -477,9 +477,9 @@ router.post('/api/user/profile/edit/profile', authMiddleware.verifyTokenUser, as
 				message: 'File size cannot be larger than 2MB!',
 			});
 		}
-		res.status(500).send({
+		res.status(500).json({
 			// message: `Could not upload the file: ${req.file.originalname}. ${error}`,
-			message: 'Đã xảy ra lỗi. Vui lòng kiểm tra lại!',
+			message: error.message || 'Đã xảy ra lỗi. Vui lòng kiểm tra lại!',
 		});
 	}
 });
