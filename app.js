@@ -76,7 +76,7 @@ app.use(
 	})
 );
 
-app.set('etag', false);
+// app.set('etag', false);
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true })); // default false
