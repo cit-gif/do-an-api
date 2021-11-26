@@ -84,7 +84,7 @@ app.use(express.urlencoded({ extended: true })); // default false
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.get('/', (req, res) => {
-	res.send('Hello !!');
+	res.json([`${process.env.HOST}${process.env.PORT}`, ...origin]);
 });
 app.post('/', (req, res) => {
 	res.json({ message: 'Hello' });
