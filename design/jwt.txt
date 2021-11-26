@@ -1,8 +1,0 @@
-dùng refres token để lấy token mới : nếu có trong db && jwt.sign đúng nhưng hết tạo refres token và access token 
-cập nhập lại refresh token trong db mới trả về client,
-1. nếu acc token bị lộ thì sẽ dùng đc trong khoảng thời gian nhất định
-2. nếu bị lấy refres token và dùng nó lấy token thì khi đăng nhập vào úng dụng sẽ :
-->gủi refres token ->refres hết thời gian hoặc còn thời nhưng refres token không có trong database -> sai -> bắt đăng nhạp lại 
-( lúc này refresh token mà bạn vừa tạo sẽ là refresh token hợp lệ và tất cả các refresh token khác đều không hợp lệ.)
-
-=>>>>>>>>> cách này chỉ sử  với 1 trình đăng nhập

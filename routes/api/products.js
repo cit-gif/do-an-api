@@ -224,6 +224,8 @@ router.post('/api/productAddview', async (req, res) => {
 				// new: true,
 			}
 		).lean();
+		console.log('oke');
+
 		return res.json({ message: 'oke' });
 	} catch (error) {
 		return res.status(500).json({ message: 'not oke' });
