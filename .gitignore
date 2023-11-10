@@ -8,3 +8,4 @@ yarn-error.lock
 .expo
 .next
 dist
+logs/*
