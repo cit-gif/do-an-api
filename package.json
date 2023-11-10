@@ -14,7 +14,8 @@
 		"deleteSeed": "node db/deleteSeed.js",
 		"dev": "SET DEBUG=server:* && nodemon --exec ./node_modules/.bin/babel-node bin/www",
 		"build23": "rimraf dist/ && babel ./ --out-dir dist/ --ignore ./public,./node_modules,./.babelrc,./package.json,./npm-debug.log,./.env --copy-files",
-		"start": "./node_modules/.bin/babel-node bin/www"
+		"start": "./node_modules/.bin/babel-node bin/www",
+		"start-local-product": "pm2 start ecosystem.config.js && ngrok http 3000"
 	},
 	"dependencies": {
 		"@babel/runtime": "^7.16.3",
